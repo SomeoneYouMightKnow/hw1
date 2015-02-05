@@ -1,0 +1,5 @@
+Memory
+Heap - systematically stored data.
+     - contents of strings
+Stack - methods, local variables, parameters, and return address.
+      - main
