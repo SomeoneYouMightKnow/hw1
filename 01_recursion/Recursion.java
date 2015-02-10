@@ -15,8 +15,8 @@ public class Recursion{
     //Write these recursive functions as defined in class:
     //fib(n) –> returns the nth fib number
     public int fibonacci( int n ) {
-	if ( n < 1 ) {
-	    return -1;
+	if ( n <= 0 ) {
+	    return 0;
 	} else if ( n <= 2 ) {
 	    return 1;
 	} else {
