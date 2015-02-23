@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Knight{
     private int[][] board;
-    private int maxX;
-    private int maxY;
+    private int maxX = 5;
+    private int maxY = 5;
 
     private int step = 1;
 		
@@ -15,8 +15,6 @@ public class Knight{
     }
 		
     public Knight(){
-	maxX=5;
-	maxY=5;
 	board = new int[maxX][maxY];
 	for (int i = 0 ; i < maxX ; i++) {
 	    for (int j = 0; j < maxY ; j++) {
@@ -26,10 +24,10 @@ public class Knight{
     }
 		
     public String toString(){
-	String s = "[2J\n";	
+	String s = "";
 	for ( int y = 0 ; y < maxY ; y++ ){
 	    for ( int x = 0 ; x < maxX ; x++ ){
-		s += board[x][y];
+	        s += String.format("%3d", board[y][x]);
 	    }
 	    s += "\n";
 	}
@@ -48,6 +46,7 @@ public class Knight{
 	delay(100);
 	System.out.println(this);
 	board[x][y]=step;
+	step++;
 	solve(x+1,y+2);
 	solve(x+1,y-2);
 	solve(x-1,y+2);
@@ -60,10 +59,9 @@ public class Knight{
 		
     public static void main(String[] args){
 	Knight k = new Knight();
-	System.out.println(k);
+	System.out.print(k);
 	k.solve(1,1);
-	System.out.println(k);
-		
+	System.out.print(k);
     }
 }
 
