@@ -8,6 +8,7 @@ public class Makelake {
     private int elevation;
     private int N;
     private Scanner sc = null;
+
     
     public Makelake() {
 	try {
@@ -30,6 +31,7 @@ public class Makelake {
 	}
     }
 
+    
     public  String toString() {
 	String s = "";
 	for (int i = 0; i < field.length; i++) {
@@ -42,38 +44,49 @@ public class Makelake {
 	return s;
     }
 
+    
     public void stomp(int R_s, int C_s, int D_s) {
-	int max = 0;
-	for (int i = 0; i < 3; i++) {
-	    for (int j = 0; j < 3; j++) {
-		if (field[R_s+i-1][C_s+j-1]>max) {
-		    max = field[R_s+i-1][C_s+j-1];
-		}
-	    }
-	}
-	//change the max value, avoid putting the above for loops inside of this one
 	for (int n = 0; n < D_s; n++) {
-	    for (int i = 0; i < 3; i++){
-		for (int j = 0; j < 3; j++){
-		    if (field[R_s+i-1][C_s+j-1]==max) {
-			field[R_s+i-1][C_s+j-1]--;
+	    int max = 0;
+	    //get new max
+	    for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+		    if ( field[R_s-1 + i][C_s-1 + j] > max ) {
+			max = field[R_s-1 + i][C_s-1 + j];
 		    }
 		}
 	    }
+
+	    //stomp in 3x3 grid
+	    for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+		    if (field[R_s-1 + i][C_s-1 + j]==max) {
+			field[R_s-1 + i][C_s-1 + j]--;
+		    }
+		}
+	    }
+	    // System.out.print(max);
+	    // System.out.println();
+	    //System.out.print(this);
+	    // System.out.println();
 	}
-	    /*
-	if (D_s > 0) {
-	    D_s--;
-	    stomp( R_s, C_s, D_s );
-	}
-	    */
+
+	System.out.print(this);
+	System.out.println();
     }
+
     
+    public void make() {
+	while (sc.hasNextInt()){
+	    stomp( sc.nextInt(), sc.nextInt(), sc.nextInt() );
+	}
+    }
+
+    //------------------------------MAIN---------------------------
     public static void main(String args[]){
 	Makelake l = new Makelake();
-        System.out.print(l);
-	l.stomp(1,4,4);
-	System.out.println();
 	System.out.print(l);
+	System.out.println();
+        l.make();
     }
 }
