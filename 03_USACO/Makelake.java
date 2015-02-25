@@ -43,17 +43,37 @@ public class Makelake {
     }
 
     public void stomp(int R_s, int C_s, int D_s) {
-	
-	
-	while (D_s > 0) {
+	int max = 0;
+	for (int i = 0; i < 3; i++) {
+	    for (int j = 0; j < 3; j++) {
+		if (field[R_s+i-1][C_s+j-1]>max) {
+		    max = field[R_s+i-1][C_s+j-1];
+		}
+	    }
+	}
+	//change the max value, avoid putting the above for loops inside of this one
+	for (int n = 0; n < D_s; n++) {
+	    for (int i = 0; i < 3; i++){
+		for (int j = 0; j < 3; j++){
+		    if (field[R_s+i-1][C_s+j-1]==max) {
+			field[R_s+i-1][C_s+j-1]--;
+		    }
+		}
+	    }
+	}
+	    /*
+	if (D_s > 0) {
 	    D_s--;
 	    stomp( R_s, C_s, D_s );
 	}
+	    */
     }
     
     public static void main(String args[]){
 	Makelake l = new Makelake();
         System.out.print(l);
-	l.stomp(2,2,2);
+	l.stomp(1,4,4);
+	System.out.println();
+	System.out.print(l);
     }
 }
