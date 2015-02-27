@@ -30,9 +30,13 @@ public class Mergesort {
 
     public ArrayList<Integer> mergeSort(ArrayList<Integer> a) {
 	//a can be unsorted;
-	ArrayList<Integer> output, r1, r2;
+	ArrayList<Integer> r1, r2;
 	r1 = new ArrayList<Integer>();
 	r2 = new ArrayList<Integer>();
+	if (a.size() == 1) {
+	    return a;
+	}
+	
 	for (int i = 0; i < a.size(); i++) {
 	    if (i<a.size()/2){
 		r1.add(a.get(i));
@@ -40,18 +44,19 @@ public class Mergesort {
 		r2.add(a.get(i));
 	    }
 	}
-	
-	merge(r1,r2);
-	
-	return output;
+        
+        
+	return merge( mergeSort(r1) , mergeSort(r2) );
     }
-
+    
+    /*
     public int[] mergeArray( int[] a, int[] b) {
-	int[] output = new int[10];
+	int[] output = new int[];
 	
 	return output;
     }
-
+    */
+    
     public static void main(String args[]) {
 	Mergesort m = new Mergesort();
 	ArrayList<Integer> c, d, e;
@@ -62,7 +67,7 @@ public class Mergesort {
 	for(int i = 1 ; i < 10 ; i++){
 	    c.add(i);
 	    d.add(2*i+1);
-	    e.add(r.nextInt());
+	    e.add(r.nextInt(15));
 	}
 	
 	System.out.println("c: "+c);
