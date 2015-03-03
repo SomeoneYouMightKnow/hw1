@@ -12,25 +12,36 @@ public class Mergesort {
       discussed in class
     */
 	ArrayList<Integer> output = new ArrayList<Integer>();
+	int iA++;
+	int iB++;
 	while (a.size()>0 && b.size()>0) {
-	    if (a.get(0) < b.get(0)) {
-		output.add(a.remove(0));
+	    if (a.get(iA) < b.get(iB)) {
+		//output.add(a.remove(0));
+		//remove is very inefficient. use i++
+		output.add(a.get(iA));
+		iA++;
 	    } else {
-		output.add(b.remove(0));
+		//output.add(b.remove(0));
+		output.add(b.get(iB));
+	        iB++;
 	    }
 	}
-	while (a.size()>0) {
-	    output.add(a.remove(0));
+	while (a.size()>iA) {
+	    //output.add(a.remove(0));
+	    output.add(a.get(iA));
 	}
-	while (b.size()>0) {
-	    output.add(b.remove(0));
+	while (b.size()>iB) {
+	    //output.add(b.remove(0));
+	    output.add(b.get(iB));
 	}
         return output;
     }
 
+    
+
     public ArrayList<Integer> mergeSort(ArrayList<Integer> a) {
 	//a can be unsorted;
-	ArrayList<Integer> r1, r2;
+	ArrayList<Integer> r1, r2; //makes 2 per recursive level, inefficient
 	r1 = new ArrayList<Integer>();
 	r2 = new ArrayList<Integer>();
 	if (a.size() == 1) {

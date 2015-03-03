@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Knight{
     private int[][] board;
-    private int maxX = 5;
-    private int maxY = 5;
+    private int maxX = 8;
+    private int maxY = 8;
 
     private int step = 1;
 		
