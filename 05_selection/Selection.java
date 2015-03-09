@@ -3,10 +3,10 @@ public class Selection {
     public void select( /*int k,*/ int[] L, int si, int ei ){
         int[] D = new int[L.length];
         for (int i = 0; i < L.length; i++){
-            if (i == si) {
+            if (i <= si || i > ei) {
                 D[i] = L[i];
             }   else {
-                i = si-1;
+                i = ei+1;
             }
         }
         int save = L[si];
@@ -22,12 +22,14 @@ public class Selection {
              i++;
         }
         D[si] = L[i];
+	return;
         }
-    }
+    
 
     public static void main(String[] args){
         Selection s = new Selection();
-        s.select( [4, 6, 2, 7, 1, 8, 3, 9, 0, 5] , 3, 6);
+	int[] a = new int[]{4, 6, 2, 7, 1, 8, 3, 9, 0, 5};
+        s.select( a, 3, 6);
     }
     
 }
