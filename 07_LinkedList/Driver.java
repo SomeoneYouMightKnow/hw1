@@ -30,11 +30,14 @@ public class Driver {
 	//System.out.println(n.getNext());
 
 	for(Node i = n; i != null; i = i.getNext()) {
-	    System.out.println(i);
+	    // System.out.println(i);
 	}
 
-	
-	
+	LinkedList l = new LinkedList();
+	l.add("hello");
+	l.add("world");
+	System.out.println(l);
+
     }
 
 
