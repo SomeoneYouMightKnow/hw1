@@ -38,6 +38,12 @@ public class Driver {
 	l.add("world");
 	System.out.println(l);
 
+	for (int i=0;i<5;i++){
+	    l.insert(i,""+i);
+	    System.out.println(l);
+	    
+	}
+
     }
 
 
