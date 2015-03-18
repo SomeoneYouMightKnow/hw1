@@ -27,13 +27,16 @@ public class LinkedList {
     }
 
     public void insert( int n, String s ) {
+	Node insert = new Node(s);
 	Node temp = l;
 	for (int i = 0; i < n-1; i++) {
 	    temp = temp.getNext();
 	}
-	Node insert = new Node(s);
-	insert.setNext(temp.getNext());
-	temp.setNext(insert);
+	if ( n == 0 ) {
+		insert.setNext(l);
+	} else {
+		insert.setNext(temp.getNext());
+		temp.setNext(insert);
+    	}
     }
-    
 }
