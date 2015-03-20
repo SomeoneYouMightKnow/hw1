@@ -1,11 +1,13 @@
 public class LList {
     private Node l = null;
+    private Node dummy = null;
+    private int len = 0;
 
     public void add(String s) {
-	Node tmp = new Node(s);
-	tmp.setNext(l);
-	l = tmp;
-	
+	Node in = new Node(s);
+        in.setNext(l);
+	l = in;
+	len++;
     }
 
     public String toString() {
@@ -18,7 +20,7 @@ public class LList {
 	return s;
     }
 
-    public String find( int n ) {
+    public String get( int n ) {
 	Node output = l;
 	for (int i = 0; i < n; i++) {
 	    output = output.getNext();
@@ -26,7 +28,7 @@ public class LList {
 	return output.getData();
     }
 
-    public void insert( int n, String s ) {
+    public void add( int n, String s ) {
 	Node insert = new Node(s);
 	Node temp = l;
 	for (int i = 0; i < n-1; i++) {
@@ -38,5 +40,17 @@ public class LList {
 		insert.setNext(temp.getNext());
 		temp.setNext(insert);
     	}
+	len++;
     }
+
+    public boolean remove( int n ) {
+	Node temp = new Node();
+	for (int i = 0; i < n; i++) {
+	    temp = temp.getNext();
+	}
+	temp.setnext(temp.getNext().getNext());
+	len--;
+    }
+
+    
 }
