@@ -6,8 +6,8 @@ public class myStack<E>{
     private Node<E> top;
 
     public myStack(E s) {
-	first = new Node(s);
-	top = new Node();
+	Node<E> first = new Node<E>(s);
+	top = new Node<E>();
 	top.setNext(first);
     }
 
@@ -24,7 +24,7 @@ public class myStack<E>{
 
     public E pop(){
         // remove and return the top item from the stack
-	Node<E> tmp = top;
+	E tmp = top.getData();
         top.setNext(top.getNext().getNext());
 	return tmp;
     }
