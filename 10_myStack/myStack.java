@@ -11,6 +11,10 @@ public class myStack<E>{
 	top.setNext(first);
     }
 
+    public myStack() {
+	this(null);
+    }
+
     public void push(E data){
         // add something to the top
 	Node<E> insert = new Node<E>(data);
