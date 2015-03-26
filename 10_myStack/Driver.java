@@ -1,7 +1,7 @@
 public class Driver {
     
     public static void main(String[] args) {
-	myStack s = new myStack();
+	myStack<Integer> s = new myStack();
 	System.out.println(s.empty());
 	for (int n = 0; n < 10; n++){
 	    s.push(n);
