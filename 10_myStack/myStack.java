@@ -5,14 +5,14 @@ public class myStack<E>{
 
     private Node<E> top;
 
+    public myStack() {
+	this(null);
+    }
+
     public myStack(E s) {
 	Node<E> first = new Node<E>(s);
 	top = new Node<E>();
 	top.setNext(first);
-    }
-
-    public myStack() {
-	this(null);
     }
 
     public void push(E data){
@@ -37,4 +37,13 @@ public class myStack<E>{
         // return the top item from the stack
 	return top.getNext().getData();
     }
+
+    public String toString() {
+	String s = "";
+	for (Node tmp = new Node(); tmp.getNext() != null; tmp = tmp.getNext()) {
+	    s += tmp.getData();
+	}
+	return s;
+    }
+
 }
