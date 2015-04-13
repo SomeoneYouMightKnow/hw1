@@ -1,35 +1,26 @@
 public class Node<E>{
-    private E data;
-    private Node<E> next;
-    private Node<E> prev;
+    private int x,y;
+    private Node prev;
 
     public Node(){
-	this(null);
+	this(0,0);
     }
-    public Node(E s){
-	data = s;
-	next = null;
+    public Node(int x, int y){
+        this.x = x;
+	this.y = y;
 	prev = null;
     }
-    public void setData(E s){
-	data = s;
+
+    public int getX(){
+	return x;
     }
-    public E getData(){
-	return data;
+    public int getY(){
+	return y;
     }
-    public void setNext(Node<E> n){
-	next = n;
-    }
-    public Node<E> getNext(){
-	return next;
-    }
-    public void setPrev(Node<E> n){
+    public void setPrev(Node n) {
 	prev = n;
     }
-    public Node<E> getPrev(){
+    public Node getPrev() {
 	return prev;
-    }
-    public String toString(){
-	return ""+data;
     }
 }
