@@ -2,9 +2,6 @@ public class Node<E>{
     private int x,y;
     private Node prev;
 
-    public Node(){
-	this(0,0);
-    }
     public Node(int x, int y){
         this.x = x;
 	this.y = y;

@@ -10,7 +10,7 @@ public class Maze{
     private char exit='$';
     private char visited = '.';
     private boolean solved = false;
-    private Frontier f = new Frontier();
+    private Frontier f;
 
     
     public void delay(int n) {
@@ -49,19 +49,23 @@ public class Maze{
 	return s;
     }
 
-    public void addToFront(int x, int y) {
+    public void addToFront(int x, int y, Node n) {
 	Node tmp = null;
-	if ( board[x][y] == '#' || board[x][y] == '$' ) {
+	if ( board[x][y] == path || board[x][y] == exit ) {
 	    tmp = new Node(x,y);
+	    tmp.setPrev(n);
 	    f.add(tmp);
 	}
     }
     
     public void bfs(int x, int y) {
-	f.add(new Node(x,y));
+	//f = new Frontier();
+	f = new StackFront();
 	
-	while (!f.empty()) {
-	    Node current = f.remove();
+	f.add(new Node(x,y));
+	Node current = null;
+	while (!f.isEmpty()) {
+	    current = f.remove();
 	    int cx = current.getX();
 	    int cy = current.getY();
 
@@ -71,15 +75,23 @@ public class Maze{
 	    
 	    board[cx][cy] = 'z';
 
-	    addToFront(cx+1,y);
-	    addToFront(cx-1,y);
-	    addToFront(cx,y+1);
-	    addToFront(cx,y-1);
-	    
+	    addToFront(cx+1,cy,current);
+	    addToFront(cx-1,cy,current);
+	    addToFront(cx,cy+1,current);
+	    addToFront(cx,cy-1,current);
+
+	    delay(50);
+	    System.out.println(this);
 	}
+
+	for (Node p = current.getPrev(); p != null ; p = p.getPrev()){
+	    board[p.getX()][p.getY()] = 'P';
+	    delay(100);
+	    System.out.println(this);
+	}
+
     }
 
-    
     public static void main(String[] args){
 	Maze m = new Maze();
 	System.out.println(m);

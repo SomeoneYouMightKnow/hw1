@@ -11,7 +11,7 @@ public class Frontier<E>{
         return l.remove(0);
     }
 
-    public boolean empty() {
+    public boolean isEmpty() {
 	return l.isEmpty();
     }
 
