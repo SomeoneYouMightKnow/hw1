@@ -8,6 +8,7 @@ public class Maze{
     private char wall=' ';
     private char me='z';
     private char exit='$';
+    private int ex, ey;
     private char visited = '.';
     private boolean solved = false;
     private Frontier f;
@@ -30,6 +31,10 @@ public class Maze{
 	    while (sc.hasNext()) {
 		String line = sc.nextLine();
 		for (int i=0;i<maxX;i++) {
+		    if (line.charAt(i) == exit) {
+			ex = i;
+			ey = j;
+		    }
 		    board[i][j] = line.charAt(i);
 		}
 		j++;
