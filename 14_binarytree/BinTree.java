@@ -8,15 +8,16 @@ public class BinTree {
 	    int c = t.getData().compareTo(i);
 	    if (c==0) {
 		return t;
-		else if ( c > 0 ) {
-		    t = t.getRight();
-		    else {
-			t = t.getLeft();
-		    }
-		}
-		return null;
 	    }
-
-
+	    else if ( c > 0 ) {
+		t = t.getRight();
+	    }
+	    else {
+		t = t.getLeft();
+	    }
+	}
+	return null;
+    }
+ 
 
 }
