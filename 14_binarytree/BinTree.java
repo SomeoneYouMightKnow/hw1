@@ -2,7 +2,7 @@ public class BinTree {
     private Node root;
 
     
-    public Node search(int i ) {
+    public Node search( int i ) {
 	Node t = root;
 	while (t != null) {
 	    int c = t.getData().compareTo(i);
@@ -19,5 +19,8 @@ public class BinTree {
 	return null;
     }
  
-
+    public void insert( Node n ) {
+	
+    }
+    
 }
