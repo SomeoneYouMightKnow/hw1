@@ -3,7 +3,7 @@ public class Node {
     private int data;
 
     public Node() {
-	this(null,null,null);
+	this(null,null,0);
     }
     
     public Node( Node l, Node r, int d ) {
