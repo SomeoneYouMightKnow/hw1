@@ -28,8 +28,13 @@ public class BinTree {
  
     public void insert( Node t, int i ) {
 	Node temp1 = t;
-	Node temp2;
-	Node insert = new Node(i);
+	Node temp2 = null;
+	Node insert = new Node(null,null,i);
+
+	if (t = null) {
+	    t = insert;
+	}
+	
 	while (temp1 != null) {
 	    int c = temp1.getData();
 	    if ( c > i ) {
@@ -38,13 +43,13 @@ public class BinTree {
 	    } else if ( c < i ) {
 		temp2 = temp1;
 		temp1 = temp1.getLeft();
-	    }
+	    } //assume no duplicate case
 	}
 	int c2 = temp2.getData();
 	if ( c2 > i ) {
-	    ;
+	    temp2.setLeft(insert);
 	} else if ( c2 < i ) {
-	    ;
+	    temp2.setRight(insert);
 	}
     }
 
