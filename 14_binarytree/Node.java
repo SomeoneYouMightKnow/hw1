@@ -19,6 +19,10 @@ public class Node {
     public void setLeft( Node n ) {
 	Left = n;
     }
+
+    public boolean hasLeft() {
+	return Left != null;
+    }
     
     public Node getRight() {
 	return Right;
@@ -26,6 +30,10 @@ public class Node {
     
     public void setRight( Node n ) {
 	Right = n;
+    }
+
+    public boolean hasRight() {
+	return Right != null;
     }
 
     public int getData() {
