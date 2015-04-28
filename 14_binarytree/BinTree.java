@@ -54,25 +54,33 @@ public class BinTree {
 	}
     }
  
-    public void insert( Node t, int i ) {
-	Node temp1 = t;
+    public void insert( int i ) {
+	Node temp1 = root;
 	Node temp2 = null;
 	Node insert = new Node(null,null,i);
 
+	if ( root == null ) {
+	    root = insert;
+	    return;
+	}
 		
 	while (temp1 != null) {
 	    temp2 = temp1;
 	    int c = temp1.getData();
-	    if ( c > i ) {
-		temp1 = temp1.getRight();
+	    if ( c == i ) {
+		return;
 	    } else if ( c < i ) {
+		temp1 = temp1.getRight();
+	    } else if ( c > i ) {
 		temp1 = temp1.getLeft();
-	    } //assume no duplicate case
+	    } else {
+		return;
+	    }
 	}
 	int c2 = temp2.getData();
-	if ( c2 > i ) {
+	if ( i > c2 ) {
 	    temp2.setLeft(insert);
-	} else if ( c2 < i ) {
+	} else {
 	    temp2.setRight(insert);
 	}
     }
@@ -101,13 +109,13 @@ public class BinTree {
     public static void main(String args[]) {
 	BinTree t = new BinTree();
 	Random r = new Random();
-	for (int i = 0; i < 20; i ++){
+	for ( int i = 0; i < 20; i++ ) {
 	    int z = r.nextInt(100);
-	    //System.out.println(z);
-	    t.insert(t.root,z);
+	    System.out.println(z);
+	    t.insert(z);
 	}
 	System.out.println(t);
-	// t.insert(30);
+	//t.insert(30);
 	System.out.println(t.search(30));
 
     }
