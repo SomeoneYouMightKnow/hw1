@@ -65,11 +65,8 @@ public class BinTree {
 		return;
 	     else if ( t.getData() < i ) 
 		t = t.getRight();
-	     else if ( t.getData() > i ) 
-		t = t.getLeft();
-	     else 
-		return;
-	    
+	     else
+		t = t.getLeft();	    
 	}
 	
 	if ( i > t2.getData() ) 
@@ -77,6 +74,36 @@ public class BinTree {
 	 else 
 	    t2.setLeft(insert);
 	
+    }
+
+    public void remove( int data ) {
+	Node t2 = null;
+	Node t = root;
+	
+	while ( t.getData() != data ) {
+	    t2 = t;
+	    if ( t.getData() < data ) 
+		t = t.getRight();
+	    else
+		t = t.getLeft();	    
+	}
+
+	if ( t.hasRight && t.hasLeft() ) {
+	    
+	    
+	} else {
+	    if ( t == t2.getRight() )
+		if ( t.hasRight() )
+		    t2.setRight(t.getRight());
+		else
+		    t2.setRight(t.getLeft());
+	    else
+		if ( t.hasRight() )
+		    t2. setLeft(t.getRight());
+		else
+		    t2.setLeft(t.getLeft());
+	}
+
     }
 
 
