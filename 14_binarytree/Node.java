@@ -5,6 +5,10 @@ public class Node {
     public Node() {
 	this(null,null,0);
     }
+
+    public Node( int d ) {
+	this(null,null,d);
+    }
     
     public Node( Node l, Node r, int d ) {
 	Left = l;
@@ -44,4 +48,8 @@ public class Node {
 	data = n;
     }
 
+    public String toString(){
+	return ""+data;
+    }
+    
 }
