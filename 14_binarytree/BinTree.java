@@ -40,6 +40,7 @@ public class BinTree {
 	}
     }
 
+    //sort of cheating...
     public String search( int i ) {
 	Node retval = search( root, i );
 	if ( retval == null) {
@@ -104,7 +105,7 @@ public class BinTree {
 		    t2.setLeft(t.getLeft());
 	}
 
-    }
+    }    
 
 
     public String traverse( Node t ) {
