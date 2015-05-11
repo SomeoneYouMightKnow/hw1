@@ -1,0 +1,35 @@
+public class BTree {
+
+
+    public int numNodes( Node t ) {
+	if ( t = null ) {
+	    return 0;
+	} else {
+	    return 1 + numNodes( t.getLeft() ) + numNodes( t.getRight() );
+	    //sumOfValues is t.getData()+sumOfValues(left)+sumOfValues(right)
+
+
+	}
+
+	public String traverse( Node t ) {
+	    if ( t == null ) {
+		return "";
+	    } else {
+		return  traverse( t.getLeft() ) +
+		t.getData() + " " +
+		traverse( t.getRight() );
+	}
+    }
+    
+    public String toString() {
+	return traverse(root);
+    }
+
+
+    public static void main(String args[]) {
+	BTree t = new BTree();
+
+    }
+
+
+}
