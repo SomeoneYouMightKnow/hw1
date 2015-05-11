@@ -42,6 +42,7 @@ public class Node {
 
     public boolean isLeaf() {
 	return !(hasRight() || hasLeft());
+    }
     
     public int getData() {
 	return data;

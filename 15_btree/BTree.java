@@ -2,44 +2,48 @@ public class BTree {
     private Node root;
 
     public BTree() {
-	this(null);
+	    this(null);
     }
 
     public BTree( Node n ) {
-	root = n;
+	    root = n;
     }
 
     public int numNodes( Node t ) {
-	if ( t == null ) {
-	    return 0;
-	} else {
-	    return 1 + numNodes( t.getLeft() ) + numNodes( t.getRight() );
-	    //sumOfValues is t.getData()+sumOfValues(left)+sumOfValues(right)
-	}
+	    if ( t == null ) {
+	        return 0;
+	    } else {
+    	    return 1 + numNodes( t.getLeft() ) + numNodes( t.getRight() );
+	        //sumOfValues is t.getData()+sumOfValues(left)+sumOfValues(right)
+	    }
     }
 
     public int maxValue( Node t ) {
-	int max = t.getData();
-	if ( t != null ) {
-	    if ( max <= maxValue(t.getLeft()) ) {
-		max = maxValue(t.getLeft());
+	    int max = t.getData();
+	    if ( t != null ) {
+	        if ( max <= maxValue(t.getLeft()) ) {
+		        max = maxValue(t.getLeft());
+	        }
+	        if ( max <= maxValue(t.getRight()) ) {
+		        max = maxValue(t.getRight());
+	        }
 	    }
-	    if ( max <= maxValue(t.getRight()) ) {
-		max = maxValue(t.getRight());
-	    }
-	}
-	return max;
+	    return max;
     }
 
     public int height( Node t ) {
-	if ( t.isLeaf() ) {
-	    return 1;
-	} else {
-	
-	}
+	    if ( t == null ) {
+	        return 0;
+	    } else {
+	        if (height(t.getRight()) > height(t.getLeft())) {
+	            return 1 + height(t.getRight());
+	        } else {
+	            return 1 + height(t.getLeft());
+	        }
+	    }
     }
 
-    public void splitDup( Node t ) {
+    public void splitDupes( Node t ) {
 
 
     }
