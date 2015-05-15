@@ -1,12 +1,14 @@
 public class MinHeap {
-    private int[] heap;
+    private int[] heap;  //contains nonzero ints
+    private int last;    //contains index of last value
     
     public Heap() {
-	heap = new int[31];
+	this(7); //default 3 levels
     }
 
     public Heap( int n ) {
 	heap = new int[n];
+	last = 0;
     }
 
     public int minValue() {
@@ -14,15 +16,26 @@ public class MinHeap {
     }
 
     public int removeMin() {
-
+	int remove = minValue();	
+	heap[0] = heap[last];
+	heap[last] = 0;
+	last--;
+	pushdown(0);
+	return remove;
     }
     
     public void insert( int n ) {
-
+	if ( heap.length == last + 1 ) {
+	    
+	} else {
+	    last++;
+	    heap[last] = n;
+	    siftup(last);
+	}
     }
 
     public void pushdown( int i ) {
-
+	
     }
 
     public void siftup( int i ) {
@@ -32,4 +45,6 @@ public class MinHeap {
     public void sort( int i ) {
 
     }
+
+    
 }
